@@ -22,6 +22,24 @@ It uses **Hugging Face Transformers** and **Gradio** to provide a web interface 
 ## 🧩 How to Run Locally
 
 ### 1️⃣ Clone this repository
-```bash
+
 git clone https://github.com/divyeshram/Marine-Insights.git
 cd <Marine-Insights>
+
+2️⃣ Install dependencies
+
+Make sure you have Python 3.9+ installed, then install the required libraries:
+
+pip install -r requirements.txt
+
+3️⃣ Run the Gradio app
+python app.py
+
+
+After running, open your browser and go to:
+
+http://127.0.0.1:7860/
+
+
+You’ll see the interactive AI-Powered Marine Text Analyzer interface. 🌊
+
