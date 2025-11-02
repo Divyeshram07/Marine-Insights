@@ -1,17 +1,27 @@
-# 🌊 AI-Powered Insights for Marine Ecosystem Health
+# 🌊 Applied Machine Learning for Text Analysis Project  
+### **AI-Powered Marine Ecosystem Text Analyzer**  
+*Created by: Divyesh Ram*
 
-This project applies **Machine Learning for Text Analysis** to study marine ecosystem health.
-It uses Hugging Face Transformers and Streamlit for visualization.
+---
 
-### 🔍 Features
-- Sentiment analysis of ocean-related reports or tweets
-- Visualization of public sentiment trends
-- Interactive Streamlit UI
+## 📘 Overview
+This project demonstrates how **Machine Learning and NLP** can be applied to analyze **marine and environmental text**.  
+It uses **Hugging Face Transformers** and **Gradio** to provide a web interface for analyzing sentiment and extracting keywords.
 
-### 🚀 Run Locally
+---
+
+## 🚀 Features
+- 🌍 Sentiment analysis using Hugging Face models  
+- 🧠 Multiple model options to select dynamically  
+- 🪸 Keyword extraction for marine/environmental context  
+- 🎨 Clean UI with modern styling using Gradio themes  
+- 🌐 Deployable on Hugging Face Spaces directly from GitHub  
+
+---
+
+## 🧩 How to Run Locally
+
+### 1️⃣ Clone this repository
 ```bash
-pip install -r requirements.txt
-streamlit run app.py
-
-Hugging Face Link -
-https://huggingface.co/spaces/DIVYESHRAM28/MARINE-INSIGHTS
+git clone https://github.com/divyeshram/Marine-Insights.git
+cd <Marine-Insights>
