@@ -1,21 +1,41 @@
 import streamlit as st
-import pandas as pd
-from utils.text_analysis import analyze_texts
+from textblob import TextBlob
 
-st.set_page_config(page_title="Marine Ecosystem Insights", layout="wide")
+# -------------------- PAGE CONFIG --------------------
+st.set_page_config(page_title="🌊 Marine Insights", page_icon="🌊")
 
+# -------------------- TITLE & DESCRIPTION --------------------
 st.title("🌊 AI-Powered Insights for Marine Ecosystem Health")
-st.write("Analyze text data related to oceans, marine life, and environmental reports using NLP.")
+st.write("Analyze marine-related text for sentiment and extract environmental keywords.")
 
-uploaded_file = st.file_uploader("Upload a text file containing marine-related content", type=["txt"])
+# -------------------- USER INPUT --------------------
+text_input = st.text_area(
+    "Enter marine-related text:",
+    "Coral reefs are dying due to rising sea temperatures and pollution."
+)
 
-if uploaded_file is not None:
-    text = uploaded_file.read().decode("utf-8")
-    texts = text.split("\n")
-    df = analyze_texts(texts)
-    st.subheader("Sentiment Analysis Results")
-    st.dataframe(df)
+# -------------------- ANALYSIS --------------------
+if st.button("Analyze"):
+    st.info("Analyzing text...")
 
-    st.bar_chart(df["label"].value_counts())
-else:
-    st.info("Upload a `.txt` file to begin analysis.")
+    blob = TextBlob(text_input)
+    polarity = blob.sentiment.polarity
+    sentiment = "Positive" if polarity > 0 else "Negative" if polarity < 0 else "Neutral"
+
+    # Sentiment Results
+    st.subheader("🔍 Sentiment Analysis")
+    st.write(f"**Label:** {sentiment}")
+    st.write(f"**Polarity Score:** {polarity:.2f}")
+
+    # Marine Keywords Extraction
+    st.subheader("🌐 Key Environmental Terms")
+    marine_terms = [
+        "coral", "pollution", "ocean", "plastic", "fish", "reef",
+        "acidification", "warming", "marine", "biodiversity"
+    ]
+    keywords = [word for word in text_input.lower().split() if word in marine_terms]
+
+    if keywords:
+        st.success(", ".join(set(keywords)))
+    else:
+        st.warning("No specific marine-related keywords found.")
